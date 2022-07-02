@@ -4,6 +4,8 @@ import { AppView } from '../view/appView';
 class App {
     constructor() {
         this.controller = new AppController();
+        console.log(this.controller)
+        console.log(this.view);
         this.view = new AppView();
     }
 
