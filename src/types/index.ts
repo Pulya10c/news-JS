@@ -21,3 +21,14 @@ export interface TopHeadlines {
     url: string,
     urlToImage: string | null
 }
+
+export interface DrawNews {
+    articles: TopHeadlines[],
+    status: string,
+    totalResult: number
+}
+
+export interface DrawSources {
+    sources: Source[],
+    status: string
+}
