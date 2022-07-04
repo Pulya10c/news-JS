@@ -4,6 +4,7 @@ import './sources.css';
 class Sources {
     draw(data: Source[]): void {
         const fragment: HTMLElement = (document.createDocumentFragment() as unknown) as HTMLElement;
+        
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
         data.forEach((item) => {

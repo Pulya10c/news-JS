@@ -4,7 +4,7 @@ import './news.css';
 class News {
     draw(data: TopHeadlines[]): void { 
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
-        console.log(data)
+        
         const fragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 

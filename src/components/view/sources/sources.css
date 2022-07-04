@@ -1,23 +1,30 @@
 .sources {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
-    height: 120px;
+    height: auto ;
     overflow: auto;
     align-items: center;
+    justify-content: center;
     font: 300 1em 'Fira Sans', sans-serif;
 }
 
 .source__item {
     background: none;
-    border: 2px solid #30c5ff;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
     font: inherit;
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
-    color: #70d6ff;
+    color: #ffffff;
     transition: 0.25s;
     cursor: pointer;
+}
+
+.source__item-light {
+    border: 2px solid black;
+    color: black;
 }
 
 .source__item:hover,
