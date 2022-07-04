@@ -28,6 +28,12 @@ export interface DrawNews {
     totalResult: number
 }
 
+export interface Data {
+    status: string;
+    totalResults: number;
+    articles: NewsInterface[];
+}
+
 export interface DrawSources {
     sources: Source[],
     status: string
