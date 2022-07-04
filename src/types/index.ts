@@ -40,3 +40,23 @@ export interface Options {
 export interface Callback<T> {
     (data: T): void;
 }
+
+export interface ResponseObj {
+    status: string;
+    sources: Source[];
+}
+export interface Data {
+    status: string;
+    totalResults: number;
+    articles: NewsInterface[];
+}
+export interface NewsInterface {
+    source: Source;
+    author: string;
+    title: string;
+    description: string;
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
+    content: string;
+}

@@ -9,7 +9,7 @@ class Loader {
     }
 
     getResp<T>(
-        { endpoint, options }: { endpoint: string; options: Options },
+        { endpoint, options }: { endpoint: string; options?: Options },
         callback: Callback<T> = () => {
             console.error('No callback for GET response');
         }
