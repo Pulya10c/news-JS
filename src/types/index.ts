@@ -32,3 +32,11 @@ export interface DrawSources {
     sources: Source[],
     status: string
 }
+
+export interface Options {
+   [key: string]: string
+}
+
+export interface Callback<T> {
+    (data: T): void;
+}
