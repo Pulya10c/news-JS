@@ -1,14 +1,27 @@
+* {
+    transition: 0.3s;
+}
+
 body {
     color: #fff;
-    background: #17181c;
+    background: #000000;
     font-family: sans-serif;
+}
+.body-light {
+    color: #000000;
+    background: #fff;
 }
 
 header {
     padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header h1 {
+    display: flex;
+    justify-content: center;
     font-size: 40px;
     font-weight: 800;
 }
@@ -32,4 +45,39 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+
+.button-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-family : 'MaterialIcons';
+    color: white;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button-light {
+  color: black;
+  
+}
+
+.button-theme span {
+    font-size: 40px;
+}
+
+@media (min-width:1px) and (max-width: 768px) { 
+    body {
+        background-color: rgb(65, 7, 7);
+    }
 }
