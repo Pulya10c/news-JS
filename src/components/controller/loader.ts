@@ -1,19 +1,24 @@
+import { Data, Options } from '../app/interfaces';
+
 class Loader {
-    constructor(baseLink, options) {
+    baseLink: string;
+    options: Partial<Options>;
+
+    constructor(baseLink: string, options: Partial<Options>) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
-    getResp(
-        { endpoint, options = {} },
-        callback = () => {
+    protected getResp(
+        { endpoint, options = {} }: { endpoint: string; options?: Partial<Options> },
+        callback: (data: Data) => void = () => {
             console.error('No callback for GET response');
         }
     ) {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res) {
+    private errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -23,22 +28,22 @@ class Loader {
         return res;
     }
 
-    makeUrl(options, endpoint) {
-        const urlOptions = { ...this.options, ...options };
+    private makeUrl(options: Partial<Options>, endpoint: string) {
+        const urlOptions: Partial<Options> = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
-        Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`;
+        Object.keys(urlOptions).forEach((key: string) => {
+            url += `${key}=${urlOptions[key as keyof Options]}&`;
         });
 
         return url.slice(0, -1);
     }
 
-    load(method, endpoint, callback, options = {}) {
+    private load(method: string, endpoint: string, callback: (data: Data) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            .then((data: Data) => callback(data))
             .catch((err) => console.error(err));
     }
 }
