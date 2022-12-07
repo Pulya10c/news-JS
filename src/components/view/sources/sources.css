@@ -32,3 +32,18 @@
     font-weight: 400;
     white-space: nowrap;
 }
+
+.sources::-webkit-scrollbar {
+    width: 0 !important;
+    background-color: #151516;
+}
+
+.sources::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #30c5ff;
+}
+
+.sources::-webkit-scrollbar-track {
+    background-color: #3d3d3d;
+    height: 5px;
+}
