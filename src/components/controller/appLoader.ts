@@ -1,6 +1,6 @@
 import Loader from './loader';
 
-class AppLoader extends Loader {
+abstract class AppLoader extends Loader {
     constructor() {
         super('https://newsapi.org/v2/', {
             apiKey: '39677ee50f8d48878660241e6dd2bc87',

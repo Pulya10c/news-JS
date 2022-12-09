@@ -9,9 +9,9 @@ class News {
         const newsItemTemp: HTMLTemplateElement = document.querySelector('#newsItemTemp')!;
 
         news.forEach((item: NewsItem, idx: number) => {
-            const newsClone = newsItemTemp!.content.cloneNode(true) as HTMLElement;
+            const newsClone = newsItemTemp?.content.cloneNode(true) as HTMLElement;
 
-            if (idx % 2) newsClone.querySelector('.news__item')!.classList.add('alt');
+            if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
 
             const newsPhoto: HTMLElement = newsClone.querySelector('.news__meta-photo')!;
             newsPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
@@ -31,7 +31,7 @@ class News {
         });
 
         document.querySelector('.news')!.innerHTML = '';
-        document.querySelector('.news')!.appendChild(fragment);
+        document.querySelector('.news')?.appendChild(fragment);
     }
 }
 

@@ -1,6 +1,6 @@
 import { Data, Options } from '../app/interfaces';
 
-class Loader {
+abstract class Loader {
     baseLink: string;
     options: Partial<Options>;
 
@@ -38,7 +38,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: string, endpoint: string, callback: (data: Data) => void, options = {}): void {
+    private load(
+        method: 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE',
+        endpoint: string,
+        callback: (data: Data) => void,
+        options: Partial<Options> = {}
+    ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
