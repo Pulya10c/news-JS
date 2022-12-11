@@ -16,6 +16,7 @@
     "rules": {
         "no-debugger": "off",
         "no-console": 0,
+        "no-explicit-any": "off",
         "class-methods-use-this": "off"
     }
 }
