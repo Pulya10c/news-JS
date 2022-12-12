@@ -1,3 +1,6 @@
+
+
+
 class Loader {
     baseLink: string;
     options: object;
@@ -7,7 +10,7 @@ class Loader {
     }
 
     getResp(
-        { endpoint, options = {} },
+        { endpoint, options = {} }: { endpoint: string, options?: object},
         callback = () => {
             console.error('No callback for GET response');
         }
@@ -25,12 +28,12 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: object, endpoint: object) {
-        const urlOptions = { ...this.options, ...options };
+    makeUrl(options: object, endpoint: string) {
+        const urlOptions: object = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`;
+            url += `${key}=${urlOptions[key as keyof typeof urlOptions]}&`;
         });
 
         return url.slice(0, -1);

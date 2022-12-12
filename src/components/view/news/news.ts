@@ -1,36 +1,16 @@
 import { optimize } from 'webpack';
 import './news.css';
+import { NewsSorceType } from '../../../types';
 
-interface Data  {
-    status: string;
-    totalResults: number;
-    articles: [
-        {
-        source: {
-            id: string;
-            name: string;
-        }
-        author: string;
-        content: string;
-        description: string;
-        publishedArt:string;
-        title: string;
-        url: string;
-        length: number;
-        urlToImage: string;    
-        }
-    ];
-}
-type Article = Pick<Data, [`articles`][0]>;
 class News {
     
-      draw(data: Data): void {
-        const news = data.length >= 10 ? data.filter((_item: string, idx: number) => idx < 10) : data;
+      draw(data: NewsSorceType[]): void {
+        const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
-        news.forEach((item: Article, idx: number) => {
+        news.forEach((item, idx) => {
             const newsClone = ((newsItemTemp as HTMLTemplateElement).content.cloneNode(true) as HTMLTemplateElement);
 
             if (idx % 2) (newsClone.querySelector('.news__item') as HTMLTemplateElement).classList.add('alt');
