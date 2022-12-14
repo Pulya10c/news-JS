@@ -56,7 +56,7 @@
     padding: 1rem;
     background: #fff;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .news__item .news__description h2 {
