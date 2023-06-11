@@ -1,0 +1,10 @@
+{
+    "extends": "@tsconfig/node12/tsconfig.json",
+    "compilerOptions": {
+        "preserveConstEnums": true,
+        "noImplicitAny": true,
+        "strict": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["**/*.spec.ts"]
+}
