@@ -1,10 +1,15 @@
 {
-    "extends": "@tsconfig/node12/tsconfig.json",
     "compilerOptions": {
-        "preserveConstEnums": true,
-        "noImplicitAny": true,
-        "strict": true
+        "target": "es5",
+        "strict": true,
+        "strictNullChecks": true,
+        "strictComparisons": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "allowJs": true,
+        "declaration": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["**/*.spec.ts"]
+    "exclude": ["node_modules", "**/*.test.ts"]
 }
