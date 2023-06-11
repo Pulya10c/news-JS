@@ -5,6 +5,7 @@
         "strictNullChecks": true,
         "strictComparisons": true,
         "moduleResolution": "node",
+        "noImplicitAny": true,
         "esModuleInterop": true,
         "sourceMap": true,
         "outDir": "dist",
