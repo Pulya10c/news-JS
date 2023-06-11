@@ -3,7 +3,6 @@
         "target": "es5",
         "strict": true,
         "strictNullChecks": true,
-        "strictComparisons": true,
         "moduleResolution": "node",
         "noImplicitAny": true,
         "esModuleInterop": true,
