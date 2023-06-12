@@ -1,5 +1,5 @@
 import News from './news/news';
-import Sources from './sources/sources.js';
+import Sources from './sources/sources';
 
 interface NewsItem {
 	urlToImage: string;

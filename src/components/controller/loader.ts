@@ -14,6 +14,8 @@ interface ResponseTest {
 	json(): Promise<string>
 }
 
+type Callback<T> = (data: T) => void
+
 class Loader {
 	private baseLink: string;
 	private options: loaderOptions;
@@ -23,7 +25,7 @@ class Loader {
 		this.options = options;
 	}
 
-	getResp({ endpoint, options = {} }: GetRespObj, callback = (): void => { console.error('No callback for GET response') }) {
+	getResp<T>({ endpoint, options = {} }: GetRespObj, callback: Callback<T> = () => { console.error('No callback for GET response') }) {
 		this.load('GET', endpoint, callback, options);
 	}
 
@@ -48,10 +50,10 @@ class Loader {
 		return url.slice(0, -1);
 	}
 
-	load(method: string, endpoint: string, callback: { (arg0: string): void; }, options = {}) {
+	load<T>(method: string, endpoint: string, callback: Callback<T>, options = {}) {
 		fetch(this.makeUrl(options, endpoint), { method })
 			.then(this.errorHandler)
-			.then((res) => res.json())
+			.then((res) => res.json() as T)
 			.then((data) => callback(data))
 			.catch((err) => console.error(err));
 	}
