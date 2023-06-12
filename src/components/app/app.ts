@@ -1,29 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-
-interface NewsItem {
-	urlToImage: string;
-	author: string;
-	source: {
-		name: string
-	};
-	name: number; //
-	publishedAt: string;
-	title: string;
-	description: string;
-	url: string
-}
-
-interface SourceItem {
-	name: string;
-	id: string;
-}
-interface Test {
-	articles: NewsItem[];
-	sources: SourceItem[];
-}
-
-
+import { NewsItem, SourceItem, dataResponse } from '../types'
 
 class App {
 	public controller: AppController
@@ -36,14 +13,10 @@ class App {
 
 	start() {
 		const sources = document.querySelector('.sources') as HTMLElement
-
 		if (sources !== null) {
-			sources.addEventListener('click', (e: MouseEvent) => this.controller.getNews(e, (data: Test) => this.view.drawNews(data)));
-			this.controller.getSources((data: Test) => this.view.drawSources(data));
+			sources.addEventListener('click', (e: MouseEvent) => this.controller.getNews(e, (data: dataResponse) => this.view.drawNews(data)));
+			this.controller.getSources((data: dataResponse) => this.view.drawSources(data));
 		}
-
-
-
 	}
 }
 

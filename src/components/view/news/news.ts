@@ -1,19 +1,5 @@
 import './news.css';
-
-interface NewsItem {
-	urlToImage: string;
-	author: string;
-	source: {
-		name: string
-	};
-	name: number; //
-	publishedAt: string;
-	title: string;
-	description: string;
-	url: string
-}
-
-type Element = HTMLElement | null;
+import { Element, NewsItem } from '../../types'
 
 class News {
 	draw(data: NewsItem[]): void {

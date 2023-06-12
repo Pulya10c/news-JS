@@ -1,11 +1,5 @@
 import './sources.css';
-
-interface SourceItem {
-	name: string;
-	id: string;
-}
-
-type Element = HTMLElement | null;
+import { Element, SourceItem } from '../../types'
 
 class Sources {
 	draw(data: SourceItem[]) {

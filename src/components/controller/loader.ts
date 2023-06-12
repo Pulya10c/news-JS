@@ -1,20 +1,4 @@
-interface loaderOptions {
-	[index: string]: string | null
-}
-
-interface GetRespObj {
-	endpoint: string;
-	options?: loaderOptions;
-}
-
-interface ResponseTest {
-	ok: boolean;
-	status: number;
-	statusText: string;
-	json(): Promise<string>
-}
-
-type Callback<T> = (data: T) => void
+import { Callback, loaderOptions, GetRespObj, ResponseObj } from '../types'
 
 class Loader {
 	private baseLink: string;
@@ -29,7 +13,7 @@ class Loader {
 		this.load('GET', endpoint, callback, options);
 	}
 
-	errorHandler(res: ResponseTest) {
+	errorHandler(res: ResponseObj) {
 		if (!res.ok) {
 			if (res.status === 401 || res.status === 404)
 				console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
