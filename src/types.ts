@@ -35,5 +35,9 @@ export interface INews {
 
 export interface IRespParams {
     endpoint: string;
-    options?: { sources?: string };
+    options?: IRequestOptions;
+}
+
+export interface IRequestOptions {
+    sources?: string;
 }
