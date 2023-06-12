@@ -1,10 +1,10 @@
 interface loaderOptions {
-	[index: string]: string
+	[index: string]: string | null
 }
 
 interface GetRespObj {
 	endpoint: string;
-	options: loaderOptions;
+	options?: loaderOptions;
 }
 
 interface ResponseTest {
@@ -23,8 +23,7 @@ class Loader {
 		this.options = options;
 	}
 
-	getResp({ endpoint, options = {} }: GetRespObj,
-		callback = (): void => { console.error('No callback for GET response') }) {
+	getResp({ endpoint, options = {} }: GetRespObj, callback = (): void => { console.error('No callback for GET response') }) {
 		this.load('GET', endpoint, callback, options);
 	}
 
