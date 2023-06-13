@@ -9,7 +9,7 @@
         "build": "webpack --config ./webpack.config.js --env mode=prod",
         "lint": "eslint . --ext .ts",
         "tsc-dev": "tsc --watch",
-        "format": "prettier --ignore-path src --write \"**/*.+(js/ts.json)\""
+        "format": "prettier --write 'src/**/*.{js,ts,json}'"
     },
     "repository": {
         "type": "git",
