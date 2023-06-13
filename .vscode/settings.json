@@ -2,6 +2,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.formatOnPaste": true, // required
   "editor.formatOnType": false, // required
   "editor.formatOnSave": true, // optional
