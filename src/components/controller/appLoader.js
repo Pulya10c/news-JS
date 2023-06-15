@@ -5,7 +5,7 @@ class AppLoader extends Loader {
     // super('https://newsapi.org/v2/', {
     //   apiKey: 'abf0432f07594bf18c94c89641b3f229', // получите свой ключ https://newsapi.org/
     // });
-    super('https://rss-news-api.onrender.com/', {
+    super('https://news-proxy.spanb4.shop/', {
       apiKey: 'abf0432f07594bf18c94c89641b3f229', // получите свой ключ https://newsapi.org/
     });
   }
