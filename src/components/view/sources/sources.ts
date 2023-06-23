@@ -4,7 +4,12 @@ export type SourceType = {
   name: string;
   id: string;
 };
-class Sources {
+
+export type SourcesType = {
+  status: string;
+  sources: Array<SourceType>;
+};
+export class Sources {
   draw(data: Array<SourceType>): void {
     const fragment = document.createDocumentFragment();
     const sourceItemTemplate = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;

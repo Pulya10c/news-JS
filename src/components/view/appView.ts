@@ -1,7 +1,5 @@
-import News from './news/news';
-import { NewsType } from '../controller/controller';
-import { SourcesType } from '../controller/controller';
-import Sources from './sources/sources';
+import { News, NewsType } from './news/news';
+import { Sources, SourcesType } from './sources/sources';
 
 export class AppView {
   news: News;

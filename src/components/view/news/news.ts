@@ -1,5 +1,11 @@
 import './news.css';
 
+export type NewsType = {
+  status: string;
+  totalResults: number;
+  articles: Array<PieceOfNewsType>;
+};
+
 export type PieceOfNewsType = {
   source: {
     name: string;
@@ -14,7 +20,7 @@ export type PieceOfNewsType = {
   content: string;
 };
 
-class News {
+export class News {
   draw(data: Array<PieceOfNewsType>): void {
     const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
@@ -57,6 +63,7 @@ class News {
     if (newsElement) {
       newsElement.innerHTML = '';
       newsElement.appendChild(fragment);
+      newsElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }
