@@ -34,7 +34,7 @@ class Loader {
 
   makeUrl(options: { [key: string]: string }, endpoint: string): URL {
     const urlOptions = { ...this.options, ...options };
-    console.log(urlOptions);
+    //console.log(urlOptions);
     let url = `${this.baseLink}${endpoint}?`;
 
     Object.keys(urlOptions).forEach((key) => {
